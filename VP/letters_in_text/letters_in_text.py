@@ -1,6 +1,3 @@
-from ast import Or
-
-
 FIRST_LETTER_CAPITAL = ord('A')
 FIRST_LETTER_LOWERCASE = ord('a')
 LAST_LETTER_CAPITAL = ord('Z')
@@ -18,5 +15,5 @@ def count_letters(text):
 
 
 text = str(input())
-print(count_letters(text))
 
+print(count_letters(text))
