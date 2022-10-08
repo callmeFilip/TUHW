@@ -8,8 +8,8 @@ def count_letters(text):
     counter = 0
     for i in text:
         numeric_representation = ord(i)
-        if (numeric_representation > FIRST_LETTER_CAPITAL and numeric_representation < LAST_LETTER_CAPITAL) \
-            or (numeric_representation > FIRST_LETTER_LOWERCASE and numeric_representation < LAST_LETTER_LOWERCASE):
+        if (numeric_representation >= FIRST_LETTER_CAPITAL and numeric_representation <= LAST_LETTER_CAPITAL) \
+            or (numeric_representation >= FIRST_LETTER_LOWERCASE and numeric_representation <= LAST_LETTER_LOWERCASE):
             counter += 1
 
     return counter
