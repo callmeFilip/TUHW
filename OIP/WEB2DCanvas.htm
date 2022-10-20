@@ -1,0 +1,73 @@
+<html>
+  <head>
+  <title>CANVAS_2D</title>
+  </head>
+  <body>
+	<button onClick="draw();">[DRAW]</button>
+	<button onClick="clean();">[CLEAN]</button><BR>
+	
+	<canvas id="firstCANVAS" width="600" height="400" style="border:2px solid #0000ff;">
+	Your browser does not support the HTML canvas tag.
+	</canvas>
+	
+	<script>
+	var c = document.getElementById("firstCANVAS");
+	var ctx = c.getContext("2d");
+	
+	function draw()
+	{
+		// Setup
+		var LAST_DIGITS_OF_FACULTY_NUMBER = 54;
+		ctx.lineWidth="2";
+		
+		// Outside circle
+		var X = 20 + 42 + LAST_DIGITS_OF_FACULTY_NUMBER;
+		var Y = X - 10;
+		var R = Y - 10;
+		
+		// Draw outside circle
+		ctx.beginPath(); 
+		ctx.strokeStyle = "#0000FF";
+		ctx.arc(X, Y, R, 0, 2 * Math.PI);
+		ctx.stroke();
+		
+		// Inside circle
+		var r = R / 2;
+		
+		// Draw inside circle
+		ctx.beginPath(); 
+		ctx.strokeStyle = "#FF0000";
+		ctx.arc(X, Y, r, 0, 2 * Math.PI);
+		ctx.stroke();
+		
+		// Triangle
+		var h = 3 * r;
+		var a = ( h * 2 ) / Math.sqrt(3);
+		
+		var triangle_top_x = X;
+		var triangle_top_y = Y - R;
+		
+		var triangle_bot_left_x = triangle_top_x - (a/2);
+		var triangle_bot_left_y = triangle_top_y + h;
+		
+		var triangle_bot_right_x = triangle_bot_left_x + a;
+		var triangle_bot_right_y = triangle_bot_left_y;
+		
+		// Draw triangle
+		ctx.beginPath();
+		ctx.strokeStyle = "#000000";
+		ctx.moveTo(triangle_top_x, triangle_top_y);
+		ctx.lineTo(triangle_bot_left_x, triangle_bot_left_y);
+		ctx.lineTo(triangle_bot_right_x, triangle_bot_right_y);
+		ctx.lineTo(triangle_top_x, triangle_top_y);
+		ctx.stroke();
+	}
+	
+	function clean() 
+	{
+		ctx.clearRect(0, 0, c.width, c.height); 
+	}
+	
+	</script>
+  </body>
+</html>
